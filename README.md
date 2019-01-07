@@ -17,3 +17,16 @@ https://github.com/PhrickPhaze/bash-scripts.git
 ### -CHANGE LOG- ###
 	-Scripts were added to the repository
 	-README file was updated
+	
+
+## DAG 3 ##
+
+### -FILES- ###
+* Added following files:  
+	+ skript20190103a.sh  
+	+ skript20190103b.sh  
+
+
+### -CHANGE LOG- ###
+	-Scripts were added to the repository
+	-README file was updated
