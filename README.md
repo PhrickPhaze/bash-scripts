@@ -30,3 +30,23 @@ https://github.com/PhrickPhaze/bash-scripts.git
 ### -CHANGE LOG- ###
 	-Scripts were added to the repository
 	-README file was updated
+
+## DAG 4 ##
+
+### -FILES- ###
+* Added following files:  
+	+ 20190107_Lab1a.sh  
+	+ 20190107_Lab1b.sh
+	+ 20190107_Lab1c.sh  
+	+ 20190107_Lab1d.sh
+	+ 20190107_Lab1e.sh  
+	+ 20190107_Lab1f.sh
+	+ 20190107_Lab1h.sh
+	+ createfiles.sh
+	+ txtcreator.sh
+	+ olddestroyer.sh
+
+### -CHANGE LOG- ###
+	-Scripts were added to the repository
+	-README file was updated
+	-Entire repository folder and its folder structure has been added, yet only the files necessary for the course in the 		 repository are mentioned in this README.
