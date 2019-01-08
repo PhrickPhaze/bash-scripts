@@ -50,5 +50,5 @@ https://github.com/PhrickPhaze/bash-scripts.git
 	-Scripts were added to the repository
 	-README file was updated
 	-Entire repository folder and its folder structure has been added,
-	-yet only the files necessary for the course repository are mentioned in this README.
+	 yet only the files necessary for the course repository are mentioned in this README.
 	
