@@ -51,4 +51,19 @@ https://github.com/PhrickPhaze/bash-scripts.git
 	-README file was updated
 	-Entire repository folder and its folder structure has been added,
 	 yet only the files necessary for the course repository are mentioned in this README.
+## DAG 5 ##
+
+
+### -FILES- ###
+* Added following files:  
+	+ 20190107_Lab2.sh
+	+ 20190107_Lab2_employee  
+	+ 20190102_Lab3a.sh  
+	+ 20190107_Lab3e.sh  
 	
+#### INFO ####
+The file '20190107_Lab2.sh' is completely commented out. Read the contents of the file on how to use it.
+
+### -CHANGE LOG- ###
+	-Scripts were added to the repository
+	-README file was updated
