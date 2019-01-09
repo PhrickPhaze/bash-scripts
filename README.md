@@ -58,7 +58,7 @@ https://github.com/PhrickPhaze/bash-scripts.git
 * Added following files:  
 	+ 20190107_Lab2.sh
 	+ 20190107_Lab2_employee  
-	+ 20190102_Lab3a.sh  
+	+ 20190107_Lab3a.sh  
 	+ 20190107_Lab3e.sh  
 	
 #### INFO ####
