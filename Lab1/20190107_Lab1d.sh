@@ -13,10 +13,10 @@ while true; do
 
 		case $response in
 
-			1) exec ls ;;
-			2) exec pwd ;;
-			3) exec ls -l ;;
-			4) exec ps -fe ;;
+			1) ls ;;
+			2) pwd ;;
+			3) ls -l ;;
+			4) ps -fe ;;
 			5) echo "Bye!"; break ;;
 			*) echo 'Command not found, try again' ;;
 		esac
