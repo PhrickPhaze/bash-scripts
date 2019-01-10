@@ -43,7 +43,7 @@ while [ $a -lt 10000 ]
 	fi
 	if [ $sumdig -eq 7 ]
 	then
-	echo "lucky Number : $a"
+	echo "$a"
 	fi
 	a=$(( $a + 1))
 done
