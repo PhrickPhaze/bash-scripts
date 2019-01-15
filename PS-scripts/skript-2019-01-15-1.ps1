@@ -10,5 +10,8 @@ Import-Certificate -CertStoreLocation Cert:\LocalMachine\Root -FilePath C:\temp\
 # Here the script adds content to another script because scripts with 4 bytes or less cannot be certified
 'This is a certificate' | Out-File -FilePath C:\temp\rootcert.ps1
 
-# Finally the script certifies a script with the newly create certificate
+# Now the script certifies a script with the newly create certificate
 Set-AuthenticodeSignature -FilePath C:\temp\rootcert.ps1 -Certificate $cert
+
+# Then we set an execution policy to this machines scripts to restricted
+Set-ExecutionPolicy -Scope LocalMachine -ExecutionPolicy Restricted -Force
