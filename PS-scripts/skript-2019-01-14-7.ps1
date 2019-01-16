@@ -1,4 +1,6 @@
-﻿# This command creates a new html file
+﻿## A ##
+
+# This command creates a new html file
 New-Item -Path C:\temp\fel.html
 
 ## THESE ARE THE COMMANDS USED IN THE HTML FORMATTING ##
@@ -56,4 +58,81 @@ $Head = @"
 If($test.Count -gt "10") {Write-Host "There are more than 10 warnings/errors!"}
 ConvertTo-HTML -head $Head -Body "<font color=`"Black`"><h4>If statement</h4></font>" | Out-File -FilePath C:\temp\fel.html -Append
 
-# Running the whole script implements all commands to single html file with every output.
+# Running the script up until now implements all commands (in the 'a' assignment) to single html file with every output.
+
+
+## B ##
+
+$date = Get-Date -UFormat "%Y-%m-%d"
+New-Item -Path C:\temp\kommandon-$date.html
+
+# HTML formatting
+$Head = @"
+<style>
+  body {
+    font-family: "Arial";
+    font-size: 8pt;
+    color: #4C607B;
+    }
+  th, td { 
+    border: 1px solid #e57300;
+    border-collapse: collapse;
+    padding: 5px;
+    }
+  th {
+    font-size: 1.2em;
+    text-align: left;
+    background-color: #003366;
+    color: #ffffff;
+    }
+  td {
+    color: #000000;
+    }
+  .even { background-color: #ffffff; }
+  .odd { background-color: #bfbfbf; }
+</style>
+  
+"@
+
+[string]$body = $cmdlets = Get-History | Sort-Object -Unique | ConvertTo-HTML -head $Head -Body "<font color=`"Black`"><h4>Command history</h4></font>" | Out-File -FilePath C:\temp\kommandon-2019-01-15.html
+
+# $cmdlets = Get-History | Sort-Object -Unique
+# $cmdlets
+
+# COMMENT: Command to list all commands into a .txt file with the $date variable in the file name
+# CODE: 
+# Get-History | Sort-Object -Unique | Out-File -FilePath C:\temp\$date-kommandon.txt
+
+# The following bit of code ejects the CD Unit, and if it fails it uses SAPI.SPVoice to broadcast an error message
+[CmdletBinding()] 
+$text = "Failed to operate the disk. Details : I/O unit does not exist"
+param( 
+[switch]$Eject, 
+[switch]$Close 
+) 
+try { 
+    $Diskmaster = New-Object -ComObject SAPI.SPVoice
+    $DiskRecorder = New-Object -ComObject SAPI.SPVoice 
+    $DiskRecorder.InitializeDiscRecorder($DiskMaster) 
+    if ($Eject) { 
+        $DiskRecorder.EjectMedia() 
+    } elseif($Close) { 
+        $DiskRecorder.EjectMedia() 
+    } 
+} catch { 
+    (New-Object –ComObject SAPI.SPVoice).Speak(“$text”)
+} 
+
+## C ##
+
+# This piece of code sends output to email
+# $text1 = 'Failed to operate the disk. Details : I/O unit does not exist'
+# $email = @{
+# From = "daniel.haque2@yh.nackademin.se"
+# To = "mats.karlsson@nackademin.se"
+# Subject = "Powershell"
+# SMTPServer = "mail.ownit.nu"
+# Body = $text1
+# }
+# 
+# send-mailmessage @email
