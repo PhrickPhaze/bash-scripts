@@ -67,3 +67,17 @@ The file '20190107_Lab2.sh' is completely commented out. Read the contents of th
 ### -CHANGE LOG- ###
 	-Scripts were added to the repository
 	-README file was updated
+	
+	
+
+## DAG 6 ##
+
+### -FILES- ###
+* Added following files:  
+	+ 20190107_Lab3d.sh  
+	+ uppgift1.odp  
+
+
+### -CHANGE LOG- ###
+	-Scripts and flowcharts were added to the repository
+	-README file was updated
