@@ -20,7 +20,7 @@ New-Item -Path C:\temp\fel.html
 # COMMENT: This command is split into two parts. The first one is identical to the first command in the script.
 #          The second part is an if statement where it'll print out a warning message if the amount exceeds 10 entries.
 # CODE:
-# G$body4 = Get-EventLog -Logname system -EntryType Error,Warning | measure
+# $body4 = Get-EventLog -Logname system -EntryType Error,Warning | measure
 # If($body4.Count -gt 10) {$outfile = "There are more than 10 warnings/errors!"}
 
 # HTML formatting
