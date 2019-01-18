@@ -14,6 +14,6 @@ else {"I have not lived more than a million minutes..."}
 if ($born.TotalHours -gt 1000000) {"I have lived for more than a million hours!"}
 else {"I have not lived more than a million hours..."}
 
-# Writes out m ages in unites of million of minutes.
+# Writes out my ages in unites of million of minutes.
 $millionminutes = $born.TotalMinutes / 1000000
 Write-host "I have lived for $millionminutes million minutes!"
