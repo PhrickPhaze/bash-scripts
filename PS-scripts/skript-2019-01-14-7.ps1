@@ -52,7 +52,7 @@ $Head = @"
 "@
 # Inserting the commands above in HTML and out it to the HTML file created in the begenning of the script
 [string]$body1 = Get-EventLog -Logname system -Entrytype Error,Warning | measure | ConvertTo-HTML -head $Head -Body "<font color=`"Black`"><h4>Amount of errors and warnings</h4></font>" | Out-File -FilePath C:\temp\fel.html
-[string]$body2 = Get-EventLog -LogName System -After (Get-date).AddHours(-24)| ConvertTo-HTML -head $Head -Body "<font color=`"Black`"><h4>Last 24 hours report</h4></font>" | Out-File -FilePath C:\temp\fel.html -Append
+[string]$body2 = Get-EventLog -LogName System -EntryType Error,Warning -After (Get-date).AddHours(-24)| ConvertTo-HTML -head $Head -Body "<font color=`"Black`"><h4>Last 24 hours report</h4></font>" | Out-File -FilePath C:\temp\fel.html -Append
 [string]$body3 = Get-EventLog -LogName System -Newest 100 -EntryType Error,Warning | Group-Object EntryType | ConvertTo-HTML -head $Head -Body "<font color=`"Black`"><h4>Sort objects uniquely</h4></font>" | Out-File -FilePath C:\temp\fel.html -Append
 $body4 = Get-EventLog -Logname system -EntryType Error,Warning | measure
 If($body4.Count -gt 10) {$outfile = "There are more than 10 warnings/errors!"}
