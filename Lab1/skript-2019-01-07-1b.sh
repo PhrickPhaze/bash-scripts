@@ -83,8 +83,6 @@ if [ ! -e $file ]
 								elif [[ ! $x12 = y ]]
 									then echo "Exiting script"
 									exit 0
-									else echo "Exiting script"
-									exit 0
 								fi
 						elif [[ ! $x11 = y ]]
 							then echo "Exiting script"
