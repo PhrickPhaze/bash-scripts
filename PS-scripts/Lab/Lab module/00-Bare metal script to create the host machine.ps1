@@ -1,4 +1,31 @@
-﻿# This lists the available modules for Hyper-V to be installed
+﻿####################################################################
+####################################################################
+##    _____                               _     _ _               ##
+##   |  __ \                             (_)   (_) |              ##
+##   | |__) | __ ___ _ __ ___  __ _ _   _ _ ___ _| |_ ___  ___    ##
+##   |  ___/ '__/ _ \ '__/ _ \/ _` | | | | / __| | __/ _ \/ __|   ##
+##   | |   | | |  __/ | |  __/ (_| | |_| | \__ \ | ||  __/\__ \   ##
+##   |_|__ |_|  \___|_|  \___|\__, |\__,_|_|___/_|\__\___||___/   ##
+##   |  _ \                      | |       | |      | |           ##
+##   | |_) | __ _ _ __ ___   _ __|_|_   ___| |_ __ _| |           ##
+##   |  _ < / _` | '__/ _ \ | '_ ` _ \ / _ \ __/ _` | |           ##
+##   | |_) | (_| | | |  __/ | | | | | |  __/ || (_| | |           ##
+##   |____/ \__,_|_|  \___| |_| |_| |_|\___|\__\__,_|_|           ##
+##                                                                ##
+####################################################################
+####################################################################
+#----------------------------INFORMATION-----------------------------#
+#                                                                    |
+# This script is for the bare metal machine to create the host       |
+# machine by installing the Hyper-V role first, then the networking  | 
+# and finally the actual VM. It'll have 2 network adapters           |
+# (WAN and LAN) and the nested VMs will be attached to the           |
+# LAN-adapter to be isolated from everything else. The recommanded   |
+# amount of RAM is either 16GB or 32GB depending on how big you      |
+# want to make the lab environment.                                  |
+#--------------------------------------------------------------------#
+
+# This lists the available modules for Hyper-V to be installed
 Get-WindowsFeature -Name *Hyper-V*
 
 # This command installs the Hyper-V role with PowerShell and restarts the machine after it's done.
@@ -41,6 +68,7 @@ $name = Read-Host "Enter new switch name(LAN)"
 # This piece of code creates a new virtual external switch to the LAN adapter
 New-VMSwitch -Name $name -AllowManagementOS $True -NetAdapterName $adapter.name
 
+# Sets variables to each switch
 $external = Get-VMSwitch | Select-Object -First 1
 $internal = Get-VMSwitch | Select-Object -Last 1
 
@@ -51,6 +79,8 @@ $RAM = [int64]$mem * 1GB
 New-VM -Name $vmname -MemoryStartupBytes $RAM -SwitchName $external
 Add-VMNetworkAdapter -VMName $vmname -Name $internal
 
+# This makes nested virtualization possible on the vm
 Set-VMProcessor -VMName $vmname -ExposeVirtualizationExtensions $true
 
+# Starting the vm
 Start-VM -VMName $vmname

@@ -1,4 +1,24 @@
-﻿# Variables
+﻿########################################################################
+########################################################################
+##     _____                _   _              __      ____  __       ##
+##    / ____|              | | (_)             \ \    / /  \/  |      ##
+##   | |     _ __ ___  __ _| |_ _ _ __   __ _   \ \  / /| \  / |___   ##
+##   | |    | '__/ _ \/ _` | __| | '_ \ / _` |   \ \/ / | |\/| / __|  ##
+##   | |____| | |  __/ (_| | |_| | | | | (_| |    \  /  | |  | \__ \  ##
+##    \_____|_|  \___|\__,_|\__|_|_| |_|\__, |     \/   |_|  |_|___/  ##
+##                                       __/ |                        ##
+##                                      |___/                         ##
+##                                                                    ##
+########################################################################
+########################################################################
+#-----------------------------INFORMATION------------------------------#
+#                                                                      |
+# This is the script that creates VMs. It requires all the previous    |
+# scripts to have been executed and needs the .vhd files to act as     |
+# parent disks.                                                        |
+#----------------------------------------------------------------------#
+
+# Variables
 $VM = Read-Host "Enter new VM name"
 $VMPath = Read-Host "Enter path for VM"
 New-Item -ItemType Directory -Path $VMPath -ErrorAction SilentlyContinue
@@ -13,6 +33,8 @@ $RAM = [int64]$mem * 1GB
 
 Get-VMSwitch | Format-Table
 
+# User is first presented with available switches and then 
+# is asked to choose which one to attach to the VM.
 $Switch = Read-Host "Enter switch to be attached to VM"
 
 

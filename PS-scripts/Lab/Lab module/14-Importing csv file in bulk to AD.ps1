@@ -1,4 +1,24 @@
-﻿# Imports the AD module for PowerShell
+﻿#######################################################
+#######################################################
+##                      _                   _____    ##
+##                     | |            /\   |  __ \   ##
+##      ___ _____   __ | |_ ___      /  \  | |  | |  ##
+##     / __/ __\ \ / / | __/ _ \    / /\ \ | |  | |  ##
+##    | (__\__ \\ V /  | || (_) |  / ____ \| |__| |  ##
+##   (_)___|___/ \_/    \__\___/  /_/    \_\_____/   ##
+##                                                   ##
+##                                                   ##
+#######################################################
+#######################################################
+#---------------------INFORMATION---------------------#
+#                                                     |
+# This script is used to bulk import users from a .csv|
+# file instead of having to create each individual    |
+# user one at a time.                                 |
+#-----------------------------------------------------#
+
+
+# Imports the AD module for PowerShell
 Import-Module activedirectory
 
 # Variables
@@ -32,7 +52,7 @@ foreach ($User in $ADUsers)
 	{
 		# User does not exist then proceed to create the new user account
 		
-        # Account will be created in the OU provided by the $OU variable read from the CSV file
+        # Account will be created in the OU provided by the user input
 		New-ADUser `
             -SamAccountName $Username `
             -UserPrincipalName "$Username@$domain" `

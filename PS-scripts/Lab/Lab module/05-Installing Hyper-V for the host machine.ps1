@@ -1,4 +1,24 @@
-﻿# This lists the available modules for Hyper-V to be installed
+﻿###########################################################
+###########################################################
+##    _    _                                 __      __  ##
+##   | |  | |                                \ \    / /  ##
+##   | |__| |_   _ _ __   ___ _ __   ______   \ \  / /   ##
+##   |  __  | | | | '_ \ / _ \ '__| |______|   \ \/ /    ##
+##   | |  | | |_| | |_) |  __/ |                \  /     ##
+##   |_|  |_|\__, | .__/ \___|_|                 \/      ##
+##            __/ | |                                    ##
+##           |___/|_|                                    ##
+##                                                       ##
+###########################################################
+###########################################################
+#-----------------------INFORMATION-----------------------#
+#                                                         |
+# This script installs the Hyper-V role to the host       |
+# machine.                                                |
+#---------------------------------------------------------#
+
+
+# This lists the available modules for Hyper-V to be installed
 Get-WindowsFeature -Name *Hyper-V*
 
 # This command installs the Hyper-V role with PowerShell and restarts the machine after it's done.
