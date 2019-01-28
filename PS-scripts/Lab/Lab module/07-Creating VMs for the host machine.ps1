@@ -6,7 +6,6 @@ $VMDiskPath = Read-Host "Enter path for virtual harddisk"
 New-Item -ItemType Directory -Path $VMDiskPath -ErrorAction SilentlyContinue
 $diskname = Read-Host "Enter disk name with extension (.vhd or .vhdx)"
 $vdisk = $VMDiskPath + "\" + $diskname
-$disk = [int64]$size * 1GB 
 $parent = Read-Host "Enter parent path"
 $gen = Read-Host "Enter VM generation"
 $mem = Read-Host "Enter RAM(in GB)"
