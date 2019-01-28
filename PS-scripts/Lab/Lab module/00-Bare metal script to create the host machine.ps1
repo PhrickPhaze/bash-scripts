@@ -50,3 +50,7 @@ $mem = Read-Host "Enter RAM (in GB)"
 $RAM = [int64]$mem * 1GB
 New-VM -Name $vmname -MemoryStartupBytes $RAM -SwitchName $external
 Add-VMNetworkAdapter -VMName $vmname -Name $internal
+
+Set-VMProcessor -VMName $vmname -ExposeVirtualizationExtensions $true
+
+Start-VM -VMName $vmname
