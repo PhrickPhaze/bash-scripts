@@ -84,8 +84,11 @@ $internal = Get-VMSwitch | Select-Object -Last 1
 $vmname = Read-Host "Enter VM name for host machine"
 $mem = Read-Host "Enter RAM (in GB)"
 $RAM = [int64]$mem * 1GB
+$disk = Read-Host "Enter path to virtual disk"
+$parent = Read-Host "Enter path to parent disk"
 New-VM -Name $vmname -MemoryStartupBytes $RAM -SwitchName $external
 Add-VMNetworkAdapter -VMName $vmname -Name $internal
+New-VHD -Path $disk -Differencing -ParentPath $parent
 
 # This makes nested virtualization possible on the vm
 Set-VMProcessor -VMName $vmname -ExposeVirtualizationExtensions $true
